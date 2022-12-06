@@ -57,6 +57,12 @@ class EarlGrey {
                     System.out.println("Silver: " + silver);
                     System.out.println("Golden: " + golden);
                     System.out.println("Class: " + characterClass);
+                    System.out.println("Strength: " + STR);
+                    System.out.println("Dexterity: " + DEX);
+                    System.out.println("Constitution: " + CON);
+                    System.out.println("Intelligence: " + INT);
+                    System.out.println("Wisdom: " + WIS);
+                    System.out.println("Charisma: " + CHA);
 
                 } else if (yn.equals("n") || yn.equals("N")) {
 
@@ -158,6 +164,12 @@ class EarlGrey {
             characterWriter.write("\n" + silver);
             characterWriter.write("\n" + golden);
             characterWriter.write("\n" + characterClass);
+            characterWriter.write("\n" + STR);
+            characterWriter.write("\n" + DEX);
+            characterWriter.write("\n" + CON);
+            characterWriter.write("\n" + INT);
+            characterWriter.write("\n" + WIS);
+            characterWriter.write("\n" + CHA);
             characterWriter.close();
 
         } catch(IOException error) {
@@ -180,6 +192,12 @@ class EarlGrey {
             golden = characterReader.nextInt();
             characterReader.nextLine();
             characterClass = characterReader.nextLine();
+            STR = characterReader.nextInt();
+            DEX = characterReader.nextInt();
+            CON = characterReader.nextInt();
+            INT = characterReader.nextInt();
+            WIS = characterReader.nextInt();
+            CHA = characterReader.nextInt();
 
         } catch(IOException error) {
             System.out.println("Something went wrong.");
