@@ -27,6 +27,7 @@ class EarlGrey {
     public static String yn;
 
     public static Scanner usrIn = new Scanner(System.in);
+    public static Chamomile chamomile = new Chamomile();
 
     public static void main(String[] args) {
 
@@ -149,6 +150,12 @@ class EarlGrey {
         System.out.println("\nWelcome to Earl Grey, " + fullName + ".");
 
         save();
+
+        System.out.println("To make sure you don't die in your first fight, let's get you equipped with some weaponry.");
+        inventory.add("Beginner Shortsword");
+        System.out.println("\nAdded Beginner Shortsword to your inventory.\n");
+        System.out.println("It's almost time for you to begin adventuring. We'll start with a tutorial level, to show you how combat works.");
+        chamomile.beginCombat("Nemean Lion");
 
     }
 
