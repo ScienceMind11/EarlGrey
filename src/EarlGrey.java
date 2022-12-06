@@ -6,9 +6,7 @@ import java.util.ArrayList;
 
 class EarlGrey {
 
-    public static int copper;
-    public static int silver;
-    public static int golden;
+    public static int[] coins = {0, 0, 0};
     public static ArrayList<String> inventory = new ArrayList<>();
 
     public static int STR;
@@ -53,9 +51,9 @@ class EarlGrey {
 
                     load(fileName);
 
-                    System.out.println("\nCopper: " + copper);
-                    System.out.println("Silver: " + silver);
-                    System.out.println("Golden: " + golden);
+                    System.out.println("\nCopper: " + coins[0]);
+                    System.out.println("Silver: " + coins[1]);
+                    System.out.println("Golden: " + coins[2]);
                     System.out.println("Class: " + characterClass);
                     System.out.println("Strength: " + STR);
                     System.out.println("Dexterity: " + DEX);
@@ -105,33 +103,33 @@ class EarlGrey {
 
                         case "Healer" -> {
                             System.out.println("\nYou have chosen the Healer class option.");
-                            copper = (int) ((Math.random() * 23) + 13);
-                            silver = (int) ((Math.random() * 16) + 7);
-                            golden = (int) ((Math.random() * 9) + 3);
+                            coins[0] = (int) ((Math.random() * 23) + 13);
+                            coins[1] = (int) ((Math.random() * 16) + 7);
+                            coins[2] = (int) ((Math.random() * 9) + 3);
                             validClass = true;
                         }
 
                         case "Fighter" -> {
                             System.out.println("\nYou have chosen the Fighter class option.");
-                            copper = (int) ((Math.random() * 27) + 17);
-                            silver = (int) ((Math.random() * 19) + 11);
-                            golden = (int) ((Math.random() * 12) + 7);
+                            coins[0] = (int) ((Math.random() * 27) + 17);
+                            coins[1] = (int) ((Math.random() * 19) + 11);
+                            coins[2] = (int) ((Math.random() * 12) + 7);
                             validClass = true;
                         }
 
                         case "Warlock" -> {
                             System.out.println("\nYou have chosen the Warlock class option.");
-                            copper = (int) ((Math.random() * 24) + 15);
-                            silver = (int) ((Math.random() * 18) + 9);
-                            golden = (int) ((Math.random() * 11) + 6);
+                            coins[0] = (int) ((Math.random() * 24) + 15);
+                            coins[1] = (int) ((Math.random() * 18) + 9);
+                            coins[2] = (int) ((Math.random() * 11) + 6);
                             validClass = true;
                         }
 
                         case "Rogue" -> {
                             System.out.println("\nYou have chosen the Rogue class option.");
-                            copper = (int) ((Math.random() * 36) + 23);
-                            silver = (int) ((Math.random() * 23) + 14);
-                            golden = (int) ((Math.random() * 16) + 9);
+                            coins[0] = (int) ((Math.random() * 36) + 23);
+                            coins[1] = (int) ((Math.random() * 23) + 14);
+                            coins[2] = (int) ((Math.random() * 16) + 9);
                             validClass = true;
                         }
 
@@ -160,9 +158,9 @@ class EarlGrey {
 
             FileWriter characterWriter = new FileWriter(fileName);
 
-            characterWriter.write("\n" + copper);
-            characterWriter.write("\n" + silver);
-            characterWriter.write("\n" + golden);
+            characterWriter.write("\n" + coins[0]);
+            characterWriter.write("\n" + coins[1]);
+            characterWriter.write("\n" + coins[2]);
             characterWriter.write("\n" + characterClass);
             characterWriter.write("\n" + STR);
             characterWriter.write("\n" + DEX);
@@ -187,9 +185,9 @@ class EarlGrey {
             Scanner characterReader = new Scanner(character);
 
             characterReader.nextLine();
-            copper = characterReader.nextInt();
-            silver = characterReader.nextInt();
-            golden = characterReader.nextInt();
+            coins[0] = characterReader.nextInt();
+            coins[1] = characterReader.nextInt();
+            coins[2] = characterReader.nextInt();
             characterReader.nextLine();
             characterClass = characterReader.nextLine();
             STR = characterReader.nextInt();
