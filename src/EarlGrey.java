@@ -156,6 +156,9 @@ class EarlGrey {
         System.out.println("It's almost time for you to begin adventuring. We'll start with a tutorial level, to show you how combat works.");
         Chamomile nemeanlion = new Chamomile("Beginner Shortsword", "Nemean Lion", 50, 100);
         nemeanlion.beginCombat();
+        System.out.println("Combat in Earl Grey is turn-based, meaning that you and the monster take turns attacking.");
+        System.out.println("You'll attack first, dealing a certain amount of damage to the monster.");
+        nemeanlion.playerAttack();
 
     }
 
