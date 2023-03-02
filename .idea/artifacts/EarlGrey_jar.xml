@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="EarlGrey:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/EarlGrey_jar</output-path>
+    <root id="archive" name="EarlGrey.jar">
+      <element id="module-output" name="EarlGrey" />
+    </root>
+  </artifact>
+</component>
