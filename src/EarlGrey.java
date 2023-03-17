@@ -1,5 +1,4 @@
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -26,7 +25,7 @@ class EarlGrey {
 
                 System.out.println("\nA character with that name already exists. The system will now automatically load this character file.");
 
-                load(character.getFileName());
+                character = Peppermint.load(character.getFileName());
                 character.printStats();
                 character.printOther();
 
@@ -63,59 +62,7 @@ class EarlGrey {
             error.printStackTrace();
         }
 
-        save(character.getFileName());
-
-    }
-
-    public static void save(String filename) {
-
-        try {
-
-            FileWriter characterWriter = new FileWriter(filename);
-
-            characterWriter.write("\n" + character.getCopper());
-            characterWriter.write("\n" + character.getSilver());
-            characterWriter.write("\n" + character.getGolden());
-            characterWriter.write("\n" + character.getCharacterClass());
-            characterWriter.write("\n" + character.getSTR());
-            characterWriter.write("\n" + character.getDEX());
-            characterWriter.write("\n" + character.getCON());
-            characterWriter.write("\n" + character.getINT());
-            characterWriter.write("\n" + character.getWIS());
-            characterWriter.write("\n" + character.getCHA());
-            characterWriter.close();
-
-        } catch(IOException error) {
-            System.out.println("Something went wrong.");
-            error.printStackTrace();
-        }
-
-    }
-
-    public static void load(String filename) {
-
-        try {
-
-            File characterFile = new File(filename);
-            Scanner characterReader = new Scanner(characterFile);
-
-            characterReader.nextLine();
-            character.setCopper(characterReader.nextInt());
-            character.setSilver(characterReader.nextInt());
-            character.setGolden(characterReader.nextInt());
-            characterReader.nextLine();
-            character.setCharacterClass(characterReader.nextLine());
-            character.setSTR(characterReader.nextInt());
-            character.setDEX(characterReader.nextInt());
-            character.setCON(characterReader.nextInt());
-            character.setINT(characterReader.nextInt());
-            character.setWIS(characterReader.nextInt());
-            character.setCHA(characterReader.nextInt());
-
-        } catch(IOException error) {
-            System.out.println("Something went wrong.");
-            error.printStackTrace();
-        }
+        Peppermint.save(character.getFileName(), character);
 
     }
 
