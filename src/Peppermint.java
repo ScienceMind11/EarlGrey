@@ -9,8 +9,11 @@ public class Peppermint {
 
         try {
 
+            System.out.println(filename);
             FileWriter characterWriter = new FileWriter(filename);
 
+            characterWriter.write("\n" + character.getFirstName());
+            characterWriter.write("\n" + character.getLastName());
             characterWriter.write("\n" + character.getCopper());
             characterWriter.write("\n" + character.getSilver());
             characterWriter.write("\n" + character.getGolden());
@@ -38,6 +41,8 @@ public class Peppermint {
             Scanner characterReader = new Scanner(characterFile);
 
             characterReader.nextLine();
+            character.setFirstName(characterReader.nextLine());
+            character.setLastName(characterReader.nextLine());
             character.setCopper(characterReader.nextInt());
             character.setSilver(characterReader.nextInt());
             character.setGolden(characterReader.nextInt());

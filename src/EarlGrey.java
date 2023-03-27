@@ -57,12 +57,12 @@ class EarlGrey {
 
             }
 
+            Peppermint.save(character.getFileName(), character);
+
         } catch(IOException error) {
             System.out.println("Something went wrong.");
             error.printStackTrace();
         }
-
-        Peppermint.save(character.getFileName(), character);
 
     }
 
