@@ -10,7 +10,11 @@ class EarlGrey {
 
     public static OrangePekoe character = new OrangePekoe();
 
+    public static Chai window = new Chai();
+
     public static void main(String[] args) {
+
+        window.showWindow();
 
         System.out.println("Please enter your character's first name.");
         character.setFirstName(usrIn.nextLine());
