@@ -1,55 +1,49 @@
-import javax.swing.*;
-import java.awt.*;
+import java.util.Timer;
+import java.util.TimerTask;
+
+class SpellRecharge extends TimerTask {
+
+    protected String spell;
+    protected Integer delay;
+    private final Timer timer;
+
+    public SpellRecharge(Timer timer, Integer delay, String spell) {
+        this.timer = timer;
+        this.delay = delay;
+        this.spell = spell;
+    }
+
+    public void run() {
+        System.out.println(spell + " can now be used again.");
+    }
+
+    public void cast() {
+        timer.schedule(this, delay);
+    }
+}
+
 
 public class Chai {
 
-    public JFrame window = new JFrame("window");
-    public Container container;
-    public JPanel titleNamePanel, startButtonPanel, mainTextPanel;
-    public JLabel titleNameLabel;
-    Font titleFont = new Font("Times New Roman", Font.PLAIN, 90);
-    Font bodyFont = new Font("Times New Roman", Font.PLAIN, 30);
-    JButton startButton;
+    public static Timer timer = new Timer();
 
-    public void showWindow() {
+    public static SpellRecharge fireballRecharge = new SpellRecharge(timer, 3000, "Fireball");
+    public static SpellRecharge magicMissileRecharge = new SpellRecharge(timer, 10000, "Magic Missile");
+    public static SpellRecharge lightningBoltRecharge = new SpellRecharge(timer, 15000, "Lightning Bolt");
+    public static SpellRecharge conjureElementalRecharge = new SpellRecharge(timer, 45000, "Conjure Elemental");
 
-        window.setSize(800, 600);
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.getContentPane().setBackground(Color.LIGHT_GRAY);
-        window.setLayout(null);
-        container = window.getContentPane();
-
-        titleNamePanel = new JPanel();
-        titleNamePanel.setBounds(100, 100, 600, 150);
-        titleNamePanel.setBackground(Color.LIGHT_GRAY);
-        titleNameLabel = new JLabel("ADVENTURE");
-        titleNameLabel.setForeground(Color.WHITE);
-        titleNameLabel.setFont(titleFont);
-
-        startButtonPanel = new JPanel();
-        startButtonPanel.setBounds(300, 400, 200, 100);
-        startButtonPanel.setBackground(null);
-
-        startButton = new JButton("START");
-        startButton.setBackground(null);
-        startButton.setForeground(Color.LIGHT_GRAY);
-        startButton.setFont(bodyFont);
-
-        titleNamePanel.add(titleNameLabel);
-        startButtonPanel.add(startButton);
-        container.add(titleNamePanel, BorderLayout.CENTER);
-        container.add(startButtonPanel, BorderLayout.AFTER_LAST_LINE);
-        window.setVisible(true);
-
+    public static void castFireball() {
+        fireballRecharge.cast();
     }
 
-    public void showMainScreen() {
+    public static void castMagicMissile() {
+        magicMissileRecharge.cast();
+    }
 
-        mainTextPanel = new JPanel();
-        mainTextPanel.setBounds(100, 100, 600, 250);
-        mainTextPanel.setBackground(Color.BLUE);
-        container.add(mainTextPanel);
+    public static void castLightningBolt() { lightningBoltRecharge.cast(); }
 
+    public static void castConjureElemental() {
+        conjureElementalRecharge.cast();
     }
 
 }

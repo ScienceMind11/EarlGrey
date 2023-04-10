@@ -9,7 +9,6 @@ public class Peppermint {
 
         try {
 
-            System.out.println(filename);
             FileWriter characterWriter = new FileWriter(filename);
 
             characterWriter.write("\n" + character.getFirstName());
